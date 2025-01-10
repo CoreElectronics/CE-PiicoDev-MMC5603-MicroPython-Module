@@ -7,7 +7,7 @@ This module depends on the [PiicoDev Unified Library](https://github.com/CoreEle
 See the [Quickstart Guides](https://piico.dev/p34)
 
 ## Details
-### `PiicoDev_MMC5603(bus=, freq=, sda=, scl=, addr=0x30, odr=255V,  range=, sign_x=0, sign_y=1, sign_z=1, cal_filename='calibration.cal')`
+### `PiicoDev_MMC5603(bus=, freq=, sda=, scl=, addr=0x30, odr=255,  range=, sign_x=0, sign_y=1, sign_z=1, cal_filename='calibration.cal')`
 
 
 Parameter | Type | Range            | Default                               | Description
@@ -18,11 +18,11 @@ sda       | Pin  | Device Dependent | Device Dependent                      | I2
 scl       | Pin  | Device Dependent | Device Dependent                      | I2C SCL Pin. Implemented on Raspberry Pi Pico only
 addr      | int  | 0x30             | 0x30                                  | This address cannot be changed
 odr       | int  | 0 - 255          | 255                                   | Range from 0-  255 Hz
-range     | int  | 3000             | 3000                                  | Not user configurable, Kept for compatability.
+range     | int  | 3000             | 3000                                  | Not user configurable, Kept for compatibility.
 sign_x    | int  | 0, 1             | 0                                     | Sign to represent the polarity of the magnetic field. 0 Matches the silk screen
 sign_y    | int  | 0, 1             | 1                                     | Sign to represent the polarity of the magnetic field. 1 Matches the silk screen
 sign_z    | int  | 0, 1             | 1                                     | Sign to represent the polarity of the magnetic field. 1 Matches the silk screen
-cal_filename | string |  | 'calibration.cal' | If more than one magnetometer (for example on seperate I2C buses or if an I2C mux is used), use a different filename for each. If set to `None` calibration is skipped.
+cal_filename | string |  | 'calibration.cal' | If more than one magnetometer (for example on separate I2C buses or if an I2C mux is used), use a different filename for each. If set to `None` calibration is skipped.
 
 ### `PiicoDev_MMC5603.readMagnitude()`
 Reads the magnetic field magnitude using the calibration generated during the calibration routine if available.
@@ -64,7 +64,7 @@ Parameter | Type | Range  | Description
 odr       | int  | 0 to 255 | Set the data rate in updates per second (Hz)
 
 ### `PiicoDev_MMC5603.setRange(range)`
-A function left in for compatability
+A function left in for compatibility
 Parameter | Type | Range  | Description
 --------- | ---- | ------ | -----------
 range     | int  | -inf to inf | Prints a string regarding compatability
