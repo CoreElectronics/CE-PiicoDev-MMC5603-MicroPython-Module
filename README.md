@@ -20,7 +20,7 @@ addr      | int  | 0x30             | 0x30                                  | Th
 odr       | int  | 0 - 255          | 255                                   | Range from 0-  255 Hz
 range     | int  | 3000             | 3000                                  | Not user configurable, Kept for compatibility.
 sign_x    | int  | 0, 1             | 0                                     | Sign to represent the polarity of the magnetic field. 0 Matches the silk screen
-sign_y    | int  | 0, 1             | 1                                     | Sign to represent the polarity of the magnetic field. 1 Matches the silk screen
+sign_y    | int  | 0, 1             | 0                                     | Sign to represent the polarity of the magnetic field. 1 Matches the silk screen
 sign_z    | int  | 0, 1             | 1                                     | Sign to represent the polarity of the magnetic field. 1 Matches the silk screen
 cal_filename | string |  | 'calibration.cal' | If more than one magnetometer (for example on separate I2C buses or if an I2C mux is used), use a different filename for each. If set to `None` calibration is skipped.
 

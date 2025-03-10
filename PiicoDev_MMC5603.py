@@ -53,7 +53,7 @@ def _writeBit(x, n, b):
         return _setBit(x, n)
 
 class PiicoDev_MMC5603(object):
-    def __init__(self, bus=None, freq=None, sda=None, scl=None, addr=_I2C_ADDRESS, odr=255, sign_x=0, sign_y=1, sign_z=1, calibrationFile='calibration.cal', range=None, suppress_warnings=False):
+    def __init__(self, bus=None, freq=None, sda=None, scl=None, addr=_I2C_ADDRESS, odr=255, sign_x=0, sign_y=0, sign_z=1, calibrationFile='calibration.cal', range=None, suppress_warnings=False):
         try:
             if compat_ind >= 1:
                 pass
