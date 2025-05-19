@@ -175,11 +175,20 @@ class PiicoDev_MMC5603(object):
         self._dataValid = False
         NaN = {'x':float('NaN'),'y':float('NaN'),'z':float('NaN')}
         self.sample = NaN
+        x=0
+        y=0
+        z=0
         # Read all data registers
-        data = self.i2c.readfrom_mem(self.addr, _REG_XOUT0, 9)
-        x = (data[0] << 8) | (data[1])
-        y = (data[2] << 8) | (data[3])
-        z = (data[4] << 8) | (data[5])
+        try:
+            data = self.i2c.readfrom_mem(self.addr, _REG_XOUT0, 9)
+            
+            x = (data[0] << 8) | (data[1])
+            y = (data[2] << 8) | (data[3])
+            z = (data[4] << 8) | (data[5])
+            self._dataValid = True
+        except:
+            if not self.suppress_warnings:
+                print("Invalid read")
 
         x -= 1 << 15
         y -= 1 << 15
@@ -198,7 +207,7 @@ class PiicoDev_MMC5603(object):
             x *= (self.sensitivity*self.sign_x)
             y *= (self.sensitivity*self.sign_y)
             z *= (self.sensitivity*self.sign_z)
-        self._dataValid = True
+        
         self.sample = {'x':x,'y':y,'z':z}
         return self.sample
 
